@@ -1,0 +1,252 @@
+body{
+    background-image: url(../img/bg.jpg);
+    background-size: 100% 105%;
+    background-repeat: no-repeat;
+}
+
+.music_player{
+    width: 800px;
+    height: 600px;
+    margin: 60px auto;
+}
+
+/* 顶部栏 start */
+.top_bar{
+    width: 800px;
+    height: 50px;
+    background-color: #11a2de;
+}
+
+.top_bar p{
+    font-size: 26px;
+    color: #fff;
+    float: left;
+    line-height: 50px;
+    margin-left: 50px;
+}
+
+.top_bar input{
+    height: 35px;
+    width: 275px;
+    background-color: #fff;
+    opacity: 0.35;
+    outline-style: none;
+    border: none;
+    padding: 0px;
+    padding-left: 25px;
+    font-size: 18px;
+    margin-top: 7.5px;
+    margin-left: 270px;
+    border-radius: 20px;
+}
+
+.top_bar span .icon-search{
+    font-size: 30px;
+    float: right;
+    line-height: 50px;
+    margin-right: 12px;
+    color: #e4e4e4;
+    cursor: pointer;
+}
+/* 顶部栏 end */
+
+/* 中间部分主体 start */
+.content{
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, .35);
+}
+/* 中间部分主体 end */
+
+/* 左侧歌曲列表栏 start */
+.songs{
+    width: 200px;
+    height: 100%;
+    overflow: scroll;
+}
+
+.songs::-webkit-scrollbar{
+    display: none;
+}
+
+.songs ul li div{
+    position: relative;
+    width: 180px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, .65);
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.songs ul li div span:first-child i{
+    font-size: 18px;
+    margin-left: 12px;
+    color: #f71d04;
+    cursor: pointer;
+}
+
+.songs ul li div p{
+    width: 90px;
+    font-size: 12px;
+    white-space: nowrap;
+    margin-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.songs ul li div span:last-child i{
+    font-size: 22px;
+    color: #ff1100;
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    cursor: pointer;
+}
+
+.line1{
+    width: 2px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 205px;
+    background: -webkit-linear-gradient(top,  rgba(255, 255, 255, .0) 0%,#666666 50%, rgba(255, 255, 255, .0) 100%);
+}
+
+.line2{
+    width: 2px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    right: 205px;
+    background: -webkit-linear-gradient(top,  rgba(255, 255, 255, .0) 0%,#666666 50%, rgba(255, 255, 255, .0) 100%);
+}
+/* 左侧歌曲列表栏 end */
+
+/* 中间歌曲播放模块 start */
+.songs_pic>img{
+    position: absolute;
+    width: 275px;
+    height: 275px;
+    top: 100px;
+    left: 265.5px;
+}
+
+.songs_pic .fm{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 135px;
+    left: 302.5px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.play_off{
+    animation: rotate 10s linear infinite forwards paused;
+}
+
+.play_on{
+    animation: rotate 10s linear infinite forwards running;
+}
+
+@keyframes rotate{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+
+.songs_pic .fm img{
+    width: 200px;
+    height: 200px;
+}
+/* 中间歌曲播放模块 end */
+
+/* 右侧评论区 start */
+.hot_comments{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    overflow: scroll;
+}
+
+.hot_comments h2{
+    margin-right: 120px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.hot_comments .comments_content{
+    width: 175px;
+    margin-top: 20px;
+}
+
+.hot_comments::-webkit-scrollbar{
+    display: none;
+}
+
+.hot_comments .comments_content .user_head{
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    float: left;
+    border-radius: 50%;
+}
+
+.hot_comments .comments_content .user_head img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.hot_comments .comments_content .user_id{
+    padding-top: 18px;
+    margin-left: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.hot_comments .comments_content .user_comment{
+    width: 125px;
+    margin-top: 12px;
+    margin-left: 50px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #333333;
+}
+/* 右侧评论区 end */
+
+/* 底部播放器模块 start */
+.footer_bar audio{
+    width: 800px;
+    height: 50px;
+    background-color: #f1f3f4;
+    outline-style: none;
+}
+/* 底部播放器模块 end */
+
+.video video{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    outline-style: none;
+    /* display: none; */
+}
+
+.video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(63, 63, 63, 0.5);
+    display: none;
+}
+
+.video_on{
+    display: block;
+}

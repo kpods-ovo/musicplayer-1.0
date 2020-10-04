@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器</title>
+    <!-- 引入图标字体链接 -->
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2112127_uh9vmgo8ep.css">
+    <!-- 引入重置样式表 -->
+    <link rel="stylesheet" href="./css/reset/reset.css">
+    <!-- 引入页面样式 -->
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="music_player" id="music">
+        <div class="top_bar">
+            <p>音乐播放器</p>
+            <input type="text" v-model="songsName" @keyup.enter="searchSongs">
+            <span @click="searchSongs"><i class="iconfont icon-search"></i></span>
+        </div>
+        <div class="content">
+            <div class="songs">
+                <ul>
+                    <li v-for="item in songs">
+                        <div>
+                            <span @click="songsPlay(item.id)" @click="songsCover(item.id)"><i class="iconfont icon-bofang"></i></span>
+                            <p>{{item.name}}</p>
+                            <span v-show="item.mvid!=0" @click="searchMV(item.mvid);mvPlay()"><i class="iconfont icon-tuya-"></i></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="line1"></div>
+            <div class="songs_pic">
+                <div class="fm play_off" :class="{play_on:isPlay}">
+                    <img :src="picUrl" alt="">
+                </div>
+                <img src="./img/圆环.png" alt="" class="play_off" :class="{play_on:isPlay}">
+            </div>
+            <div class="line2"></div>
+            <div class="hot_comments">
+                <h2>热门留言</h2>
+                <div class="comments_content" v-for="item in hotComments">
+                    <div class="user_head">
+                        <img :src="item.user.avatarUrl" alt="">
+                    </div>
+                    <div class="user_id">{{item.user.nickname}}</div>
+                    <p class="user_comment">{{item.content}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bar">
+            <audio @play="play" @pause="pause" :src="songsSrc" controls="controls" autoplay="autoplay"></audio>
+        </div>
+        <div class="video" :class="{video_on:MVPlay}" @click="mvPause" v-if="MVPlay">
+            <video :src="videoSrc" width="1000px" controls="controls" autoplay="autoplay"></video>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
